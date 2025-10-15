@@ -66,6 +66,10 @@ export default {
     'No data available': 'No data available',
     'Price quote': 'Price quote',
     'Sectors we serve': 'Sectors we serve',
+    'Suppliers': 'Suppliers',
+    'Select any supplier and Contact with him': 'Select any supplier and Contact with him',
+    'Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam.': 'On this page you will find answers to the most frequently asked questions about our services and products.',
+
   },
   ar: {
     'English': 'English',
@@ -134,5 +138,8 @@ export default {
     'No data available': 'لا تتوفر بيانات',
     'Price quote': 'عرض سعر',
     'Sectors we serve': 'القطاعات التي نخدمها',
+    'Suppliers': 'الموردين',
+    'Select any supplier and Contact with him': 'اختر أي مورد وتواصل معه',
+    'Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam.': 'في هذه الصفحة تجد إجابات لأكثر الأسئلة شيوعًا حول خدماتنا ومنتجاتنا.',
   }
 }
