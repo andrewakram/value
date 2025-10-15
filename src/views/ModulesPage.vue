@@ -15,10 +15,10 @@
     </div>
 
     <template v-if="moduleData.length > 0">
-      <div v-for="(item, index) in moduleData" :key="index" class="mt-6">
+      <div v-for="(item, index) in moduleData" :key="index" >
         <template v-if="['left', 'right'].includes(item.position_image)">
           <div :class="`flex ${item.position_image === 'right' ? 'sm:flex-row' : 'sm:flex-row-reverse'} flex-col-reverse xl:gap-10 gap-6 items-center max-w-screen-2xl mx-auto xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6`">
-            <div class="text-legal-eagle sm:w-1/2">
+            <div class="text-legal-eagle sm:w-1/2 mb-2">
               <p class="font-bold md:text-2xl sm:text-xl text-lg">{{ item[`title_${$i18n.locale}`] }}</p>
               <p class="md:leading-6 lg:mt-6 sm:mt-4 mt-2 md:text-base text-sm" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '<br>') : ''"></p>
             </div>
