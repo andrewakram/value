@@ -20,7 +20,7 @@
           <div :class="`flex ${item.position_image === 'right' ? 'sm:flex-row' : 'sm:flex-row-reverse'} flex-col-reverse xl:gap-10 gap-6 items-center max-w-screen-2xl mx-auto xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6`">
             <div class="text-legal-eagle sm:w-1/2 mb-2">
               <p class="font-bold md:text-2xl sm:text-xl text-lg">{{ item[`title_${$i18n.locale}`] }}</p>
-              <p class="md:leading-6 lg:mt-6 sm:mt-4 mt-2 md:text-base text-sm" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '<br>') : ''"></p>
+              <p class="md:leading-6 lg:mt-6 sm:mt-4 mt-2 md:text-base text-sm" style="margin-bottom: 5px" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '') : ''"></p>
             </div>
             <div class="sm:w-1/2 w-3/4 sm:pt-12">
               <img :src="item.image" :class="`w-full object-cover max-h-[400px] max-w-[400px] ${item.position_image === 'right' ? 'ms-auto' : 'me-auto'}`" alt="image">
@@ -28,6 +28,7 @@
           </div>
         </template>
         <template v-else-if="item.position_image === 'center'">
+          jjjjjjjjjjjjjjjjj
           <div class="text-legal-eagle text-center sm:mt-14 max-w-screen-2xl mx-auto xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6">
             <p class="font-bold sm:text-2xl text-xl max-w-2xl m-auto">{{ item[`title_${$i18n.locale}`] }}</p>
             <p class="max-w-4xl m-auto md:leading-6 sm:mt-4 mt-2 sm:text-base text-sm" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '<br>') : ''"></p>
@@ -40,7 +41,7 @@
               <div class="bg-[#EB5757E5] absolute inset-0 rounded-2xl"></div>
               <div class="relative xl:w-[754px]">
                 <p class="md:font-bold font-semibold md:text-3xl text-2xl">{{ item[`title_${$i18n.locale}`] }}</p>
-                <p class="xl:mt-6 sm:mt-4 mt-2 xl:leading-9 sm:leading-7 leading-tight" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '<br>') : ''"></p>
+                <p class="xl:mt-6 sm:mt-1 sm:mt-4 mt-2 xl:leading-9 sm:leading-7 leading-tight" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '') : ''"></p>
               </div>
               <div class="relative shrink-0 xl:w-[550px] w-full xl:h-[300px] sm:h-[200px] h-[150px] object-cover xl:-me-[208px] xl:mt-0 md:-mt-[120px] -mt-[80px] rounded-xl overflow-hidden border-2 border-solid border-white">
                 <img :src="item.image" class="w-full h-full object-cover" alt="image">
