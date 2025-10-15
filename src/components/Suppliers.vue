@@ -15,7 +15,7 @@
     <div v-if="supplierInfo && supplierInfo.contact_info" class="md:mt-14 mt-7 xl:flex grid grid-cols-2 gap-x-6 gap-y-10 rounded-[20px] lg:p-14 sm:p-10 p-6 bg-no-repeat bg-cover bg-center suppliers-bg">
       <div class="md:col-span-1 col-span-2 text-white flex flex-col xl:gap-7 gap-5 xl:whitespace-nowrap">
         <p class="font-bold text-2xl">{{ $t('Contact Information') }}</p>
-        <p class="text-[#C9C9C9]">hhhhh{{ supplierInfo.contact_info[0][`desc_${$i18n.locale}`] }}</p>
+        <p class="text-[#C9C9C9]">{{ supplierInfo.contact_info[0][`desc_${$i18n.locale}`] }}</p>
         <p v-html="supplierInfo.contact_info[0][`work_hours_${$i18n.locale}`] ? supplierInfo.contact_info[0][`work_hours_${$i18n.locale}`].replace(/\r?\n/g, '<br>') : ''"></p>
         
         <div class="flex items-center gap-4">
