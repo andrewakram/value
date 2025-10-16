@@ -15,36 +15,83 @@
     </div>
 
     <template v-if="moduleData.length > 0">
-      <div v-for="(item, index) in moduleData" :key="index" >
+      <div v-for="(item, index) in moduleData" :key="index">
+        <!-- LEFT / RIGHT IMAGE POSITION -->
         <template v-if="['left', 'right'].includes(item.position_image)">
-          <div :class="`flex ${item.position_image === 'right' ? 'sm:flex-row' : 'sm:flex-row-reverse'} flex-col-reverse xl:gap-10 gap-6 items-center max-w-screen-2xl mx-auto xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6`">
-            <div class="text-legal-eagle sm:w-1/2 mb-2">
-              <p class="font-bold md:text-2xl sm:text-xl text-lg">{{ item[`title_${$i18n.locale}`] }}</p>
-              <p class="md:leading-6 lg:mt-6 sm:mt-4 mt-2 md:text-base text-sm" style="margin-bottom: 5px" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '') : ''"></p>
+          <div
+                  :class="`grid grid-cols-1 sm:grid-cols-12 items-center max-w-screen-2xl mx-auto xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6 gap-6 xl:gap-10
+          ${item.position_image === 'right' ? '' : 'sm:[direction:rtl]'}`"
+          >
+            <!-- TEXT -->
+            <div class="text-legal-eagle sm:col-span-8 order-2 sm:order-1">
+              <p class="font-bold md:text-2xl sm:text-xl text-lg">
+                {{ item[`title_${$i18n.locale}`] }}
+              </p>
+              <p
+                      class="md:leading-6 lg:mt-6 sm:mt-4 mt-2 md:text-base text-sm"
+                      v-html="item[`content_${$i18n.locale}`]
+              ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '')
+              : ''"
+              ></p>
             </div>
-            <div class="sm:w-1/2 w-3/4 sm:pt-12">
-              <img :src="item.image" :class="`w-full object-cover max-h-[400px] max-w-[400px] ${item.position_image === 'right' ? 'ms-auto' : 'me-auto'}`" alt="image">
+
+            <!-- IMAGE -->
+            <div class="sm:col-span-4 order-1 sm:order-2 flex justify-center sm:justify-end">
+              <img
+                      :src="item.image"
+                      class="w-full object-cover max-h-[400px] max-w-[400px] rounded-lg mb-1 mt-1"
+                      alt="image"
+              />
             </div>
           </div>
         </template>
+
+        <!-- CENTER IMAGE -->
         <template v-else-if="item.position_image === 'center'">
-          jjjjjjjjjjjjjjjjj
-          <div class="text-legal-eagle text-center sm:mt-14 max-w-screen-2xl mx-auto xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6">
-            <p class="font-bold sm:text-2xl text-xl max-w-2xl m-auto">{{ item[`title_${$i18n.locale}`] }}</p>
-            <p class="max-w-4xl m-auto md:leading-6 sm:mt-4 mt-2 sm:text-base text-sm" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '<br>') : ''"></p>
-            <img :src="item.image" class="m-auto object-cover md:mt-8 mt-4 max-h-[400px]" alt="image">
+          <div
+                  class="text-legal-eagle text-center sm:mt-14 max-w-screen-2xl mx-auto xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6"
+          >
+            <p class="font-bold sm:text-2xl text-xl max-w-2xl m-auto">
+              {{ item[`title_${$i18n.locale}`] }}
+            </p>
+            <p
+                    class="max-w-4xl m-auto md:leading-6 sm:mt-4 mt-2 sm:text-base text-sm"
+                    v-html="item[`content_${$i18n.locale}`]
+            ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '<br>')
+            : ''"
+            ></p>
+            <img
+                    :src="item.image"
+                    class="m-auto object-cover md:mt-8 mt-4 max-h-[400px]"
+                    alt="image"
+            />
           </div>
         </template>
+
+        <!-- FULL IMAGE -->
         <template v-else-if="item.position_image === 'full'">
-          <div class="xl:mt-20 mt-32 max-w-screen-2xl mx-auto xl:px-20 lg:px-16 md:px-12 sm:px-8 px-6">
-            <div class="relative flex xl:flex-row flex-col-reverse xl:items-center md:gap-6 gap-4 bg-no-repeat bg-cover solution-bg rounded-2xl text-white xl:p-12 md:p-8 p-6 w-full">
+          <div
+                  class="xl:mt-20 mt-32 max-w-screen-2xl mx-auto xl:px-20 lg:px-16 md:px-12 sm:px-8 px-6"
+          >
+            <div
+                    class="relative flex xl:flex-row flex-col-reverse xl:items-center md:gap-6 gap-4 bg-no-repeat bg-cover solution-bg rounded-2xl text-white xl:p-12 md:p-8 p-6 w-full"
+            >
               <div class="bg-[#EB5757E5] absolute inset-0 rounded-2xl"></div>
               <div class="relative xl:w-[754px]">
-                <p class="md:font-bold font-semibold md:text-3xl text-2xl">{{ item[`title_${$i18n.locale}`] }}</p>
-                <p class="xl:mt-6 sm:mt-1 sm:mt-4 mt-2 xl:leading-9 sm:leading-7 leading-tight" v-html="item[`content_${$i18n.locale}`] ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '') : ''"></p>
+                <p class="md:font-bold font-semibold md:text-3xl text-2xl">
+                  {{ item[`title_${$i18n.locale}`] }}
+                </p>
+                <p
+                        class="xl:mt-6 sm:mt-1 sm:mt-4 mt-2 xl:leading-9 sm:leading-7 leading-tight"
+                        v-html="item[`content_${$i18n.locale}`]
+                ? item[`content_${$i18n.locale}`].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;').replace(/\r?\n/g, '')
+                : ''"
+                ></p>
               </div>
-              <div class="relative shrink-0 xl:w-[550px] w-full xl:h-[300px] sm:h-[200px] h-[150px] object-cover xl:-me-[208px] xl:mt-0 md:-mt-[120px] -mt-[80px] rounded-xl overflow-hidden border-2 border-solid border-white">
-                <img :src="item.image" class="w-full h-full object-cover" alt="image">
+              <div
+                      class="relative shrink-0 xl:w-[550px] w-full xl:h-[300px] sm:h-[200px] h-[150px] object-cover xl:-me-[208px] xl:mt-0 md:-mt-[120px] -mt-[80px] rounded-xl overflow-hidden border-2 border-solid border-white"
+              >
+                <img :src="item.image" class="w-full h-full object-cover" alt="image" />
               </div>
             </div>
           </div>
